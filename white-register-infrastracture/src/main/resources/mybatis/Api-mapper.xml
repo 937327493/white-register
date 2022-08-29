@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wzw.white.infrastracture.mapper.ApiMapper">
+
+    <select id="queryOne" resultType="com.wzw.white.infrastracture.dataobj.ApiDO">
+        select id, create_time as createTime, update_time as updateTime ,key_msg as keyMsg, value as value , status, version from api_do where key_msg = #{key}
+    </select>
+</mapper>

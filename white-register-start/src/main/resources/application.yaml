@@ -1,0 +1,22 @@
+
+spring:
+  application:
+    name: white-register
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+    url: jdbc:mysql://127.0.0.1:3306/white_register
+server:
+  port: 8888
+
+
+  # create database white_register character set utf8mb4
+  #     collate utf8mb4_general_ci;
+  # use white_register;
+  # create table api_do(id bigint not null, create_time datetime not null,
+  #  update_time datetime not null, version bigint not null,
+  #  keyMsg varchar(255) not null, value varchar(255) not null , status bigint not null,
+  #  constraint pk primary key(id), constraint uk unique index(keyMsg));
+mybatis:
+  mapper-locations: classpath*:mybatis/*mapper.xml
