@@ -81,7 +81,7 @@ public class ApiQueryServiceImpl implements ApiQueryService {
             redisScript.setResultType(Long.class);
             // 第一个要是script 脚本 ，第二个需要判断的key，第三个就是key所对应的值。
             redisTemplate.execute(redisScript, Arrays.asList(key), lockKey);
+            return null;
         }
-        return null;
     }
 }
