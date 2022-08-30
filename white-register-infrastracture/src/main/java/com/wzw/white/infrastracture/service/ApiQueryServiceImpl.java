@@ -49,7 +49,7 @@ public class ApiQueryServiceImpl implements ApiQueryService {
                 }
             }
             //查白名单得到偏移量
-            Long apiOneWhiteRegister = (Long) redisTemplate.opsForHash().get("apiOneWhiteRegister", key);
+            Long apiOneWhiteRegister = Long.valueOf((int)redisTemplate.opsForHash().get("apiOneWhiteRegister", key));
             if (apiOneWhiteRegister != null) {
                 Boolean apiOneWhiteRegisterBit = redisTemplate.opsForValue().getBit("apiOneWhiteRegisterBit", apiOneWhiteRegister);
                 if (!apiOneWhiteRegisterBit) throw new BizException(ExceptionEnum.DATABASENOTFINDTHISMSG);

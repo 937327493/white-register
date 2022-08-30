@@ -8,7 +8,7 @@ spring:
     password: root
     url: jdbc:mysql://127.0.0.1:3306/white_register
   redis:
-    host:
+    host: 192.168.100.99
     port: 6379
     timeout: 10000
     lettuce:
