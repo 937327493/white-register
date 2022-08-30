@@ -15,7 +15,6 @@ import org.springframework.data.redis.core.script.DefaultRedisScript;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.math.BigDecimal;
 import java.time.Duration;
 import java.util.Arrays;
 import java.util.UUID;
@@ -57,7 +56,7 @@ public class ApiQueryServiceImpl implements ApiQueryService {
             }
 
             ApiDO apiDO = apiMapper.queryOne(key);
-            long l = RedisConfig.sequenceBit.add(new BigDecimal("1")).longValue();
+            long l = RedisConfig.getSequenceBit();
             //加入白名单和bitmaps
             redisTemplate.opsForHash().put("apiOneWhiteRegister", key, l);
             if (apiDO == null) {

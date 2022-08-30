@@ -75,6 +75,8 @@ public class RedisConfig {
                     .build();
             return cacheManager;
         }
-
+        public static long getSequenceBit() {
+            return sequenceBit.add(new BigDecimal("1")).longValue();
+        }
 
 }
