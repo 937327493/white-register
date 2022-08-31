@@ -5,15 +5,14 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public enum ExceptionEnum implements BaseExcepMsg{
 
-    DATABASENOTFINDTHISMSG("DATABASENOTFINDTHISMSG", "数据库没有该信息");
+    DATABASENOTFINDTHISMSG("数据库没有该信息");
 
-    private String code;
     private String msg;
 
 
     @Override
     public String getCode() {
-        return code;
+        return name();
     }
 
     @Override

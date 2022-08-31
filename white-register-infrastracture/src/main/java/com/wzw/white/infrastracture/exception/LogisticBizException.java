@@ -7,7 +7,8 @@ public class LogisticBizException extends RuntimeException implements Serializab
     private String code;
     private String messgae;
 
-    public String getMessgae() {
+    @Override
+    public String getMessage() {
         return messgae;
     }
 
