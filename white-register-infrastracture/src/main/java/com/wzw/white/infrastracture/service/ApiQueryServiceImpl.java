@@ -5,6 +5,8 @@ import com.wzw.white.api.dto.ApiDTO;
 import com.wzw.white.application.service.ApiQueryService;
 import com.wzw.white.infrastracture.converter.ApiConverter;
 import com.wzw.white.infrastracture.dataobj.ApiDO;
+import com.wzw.white.infrastracture.event.CommonEventPublisher;
+import com.wzw.white.infrastracture.event.EventA;
 import com.wzw.white.infrastracture.exception.BizException;
 import com.wzw.white.infrastracture.exception.ExceptionEnum;
 import com.wzw.white.infrastracture.mapper.ApiMapper;
@@ -27,11 +29,13 @@ public class ApiQueryServiceImpl implements ApiQueryService {
     private ApiMapper apiMapper;
     @Resource
     private RedisTemplate<String, String> redisTemplate;
-
+    @Resource
+    private CommonEventPublisher commonEventPublisher;
     @Override
     public ApiDTO queryOneApi(String key) {
         //手写分布式锁
         String lockKey = UUID.randomUUID().toString().substring(0, 10);
+        commonEventPublisher.publishEvent(new EventA("A事件"));
         try {
             //查缓存
             String apiString = redisTemplate.opsForValue().get(key);
